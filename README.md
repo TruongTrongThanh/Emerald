@@ -1,3 +1,3 @@
 # Emerald
-Reading Comic Web Application
+Reading Comic Web Application<br/>
 Progress: 30%
