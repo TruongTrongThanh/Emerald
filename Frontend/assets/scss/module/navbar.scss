@@ -1,0 +1,110 @@
+@import '../config/variable.scss';
+@import '../config/mixin.scss';
+
+.navbar {
+  display: grid;
+  background-color: $navbar-backgroundColor;
+  height: $navbar-height;
+  color: $navbar-color;
+  box-shadow: 0 -2px 8px #878787;
+  margin-bottom: 20px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+
+  grid-template-columns: 1fr 3fr 1fr;
+  @include for-tablet-portrait-up {
+    grid-template-columns: 15% 1fr;
+  }
+
+  .navbar-brand {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    max-height: $navbar-height;
+    text-align: center;
+
+    grid-template-columns: 1fr;
+    @include for-tablet-landscape-up {
+      &.with-logo {
+        grid-template-columns: 30% 70%;
+      }
+    }
+  
+    .text {
+      display: none;
+      text-align: left;
+      @include for-tablet-landscape-up {
+        display: inline-block;
+      }
+    }
+    img {
+      display: inline-block;
+      object-fit: scale-down;
+      height: $navbar-height;
+    }
+  }
+
+  .navbar-toggle {
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    @include user-select(none); 
+
+    @include for-tablet-portrait-up {
+      display: none;
+    }
+  }
+
+  .navbar-mobile-list {
+    text-align: center;
+
+    @include for-tablet-portrait-up {
+      display: none;
+    }
+  }
+
+  .navbar-desktop-list {
+    @include for-phone-only {
+      display: none;
+      &.is-active {
+        display: block;
+      }
+    }
+
+    grid-column: span 3;
+    background-color: $navbar-desktopList-backgroundColor;
+    @include for-tablet-portrait-up {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      grid-column: span 1;
+      align-items: center;
+      background-color: transparent;
+
+      .navbar-start {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+      }
+      .navbar-end {
+        display: flex;
+        justify-self: end;
+        margin-right: 10px;
+      }
+    }
+
+    .navbar-item {
+      padding: 10px;
+
+      &.no-padding {
+        padding: 0;
+      }
+
+      display: block;
+      text-align: center;
+      @include for-tablet-portrait-up {
+        display: inline-block;
+      }
+    }
+  }
+}

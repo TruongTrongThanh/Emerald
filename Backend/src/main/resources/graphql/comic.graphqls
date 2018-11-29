@@ -1,0 +1,69 @@
+schema {
+    query: queryType
+}
+
+type queryType {
+    comic(id: ID!): Comic
+    chapter(id: ID!): Chapter
+
+    comicList(options: ComicOptions): [Comic]
+    # chapterByComicId(options: Options!): [Chapter]
+    # paperByChapterId(options: Options!): [Paper]
+
+}
+
+interface Options {
+    page: Int
+    size: Int
+    direction: String
+    sortOrder: String
+}
+input ComicOptions {
+    page: Int
+    size: Int
+    direction: String
+    sortOrder: String
+    name: String
+    author: String
+    demographic: String
+    genres: String
+    description: String
+    year: Int
+}
+
+type Comic {
+    id: ID!
+    name: String!
+    author: String!
+    demographic: String!
+    genres: [String]!
+    description: String
+    year: Int
+    coverUrl: String
+    thumbUrl: String
+    chapters(page: Int, size: Int, direction: String, sortOrder: String): [Chapter]
+    createdAt: String!
+    modifiedAt: String!
+}
+
+type Chapter {
+    id: ID!
+    index: Int!
+    name: String!
+    state: String!
+    errorFileList: [String]
+    comic: Comic!
+    # papers(page: Int, size: Int, direction: String, sortOrder: String): [Paper]
+    createdAt: String!
+    modifiedAt: String!
+}
+
+type Paper {
+    id: ID!
+    name: String!
+    imageUrl: String!
+    thumbnailUrl: String!
+    chapter: Chapter!
+    createdAt: String!
+    ModifiedAt: String!
+}

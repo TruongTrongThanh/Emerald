@@ -1,0 +1,75 @@
+@import '../config/variable.scss';
+@import '../config/mixin.scss';
+
+.panel {
+	$borderStyle: 1px solid black;
+	$borderRadius: 5px;
+	border-radius: $borderRadius;
+	background-color: $panel-backgroundColor;
+
+	display: block;
+	@include for-tablet-portrait-up {
+		display: inline-block;
+	}
+
+	> .header-box {
+		border-top-left-radius: $borderRadius;
+		border-top-right-radius: $borderRadius;
+		height: $panel-header-height; 
+		text-align: left;
+		color: $panel-header-color;
+		background-color: $panel-header-backgroundColor;
+
+		> .header {
+			margin-left: 8px;
+			display: inline-block;
+			line-height: $panel-header-height;
+		}
+
+		&.multiple {
+			display: flex;
+			justify-content: space-evenly;
+
+			> .header {
+				margin-left: 0px;
+				display: inline-block;
+				line-height: $panel-header-height;
+				padding: 0 5px;
+				width: 100%;
+				text-align: center;
+				border-right: 1px dotted #909090;
+
+				&:first-child {
+					border-top-left-radius: $borderRadius;
+				}
+				&:last-child {
+					border-top-right-radius: $borderRadius;
+					border-right: none;
+				}
+				&.selected {
+					background-color: #cce9b6;
+				}
+
+				.header-name {
+					display: none;
+				}
+				@include for-tablet-portrait-up {
+					.header-name {
+						display: inline;
+					}
+				}
+			}
+		}
+	}
+	> .content-box {
+		padding: 20px;
+
+		&.multiple {
+			display: none;
+
+			&.selected {
+				display: block;
+			}
+		}
+	}
+}

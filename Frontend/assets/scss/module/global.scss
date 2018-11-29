@@ -1,0 +1,86 @@
+@import '../config/variable.scss';
+@import '../config/mixin.scss';
+
+@include for-phone-only {
+  body {
+    font-size: $for-phone-only-fontSize;
+    .desktop-only {
+      display: none !important;
+    }
+    h1 {
+      font-size: $for-phone-only-fontSize + 0.7;
+    }
+    h2 {
+      font-size: $for-phone-only-fontSize + 0.5;
+    }
+  }
+}
+@include for-tablet-portrait-up {
+body {
+    font-size: $for-tablet-portrait-up-fontSize;
+    .mobile-only {
+      display: none !important;
+    }
+    h1 {
+      font-size: $for-tablet-portrait-up-fontSize + 0.7;
+    }
+    h2 {
+      font-size: $for-tablet-portrait-up-fontSize + 0.5;
+    }
+  }
+}
+@include for-tablet-landscape-up {
+  body {
+    font-size: $for-tablet-landscape-up-fontSize;
+  }
+  h1 {
+    font-size: $for-tablet-landscape-up-fontSize + 0.7;
+  }
+  h2 {
+    font-size: $for-tablet-landscape-up-fontSize + 0.5;
+  }
+}
+@include for-desktop-up {
+  body {
+    font-size: $for-desktop-up-fontSize;
+  }
+}
+@include for-big-desktop-up {
+  body {
+    font-size: $for-big-desktop-up-fontSize;
+  }
+}
+.container {
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  @include for-tablet-landscape-up {
+    width: 90%;
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.no-select {
+  @include user-select(none);
+}
+a.no-link-style {
+  text-decoration: none;
+  color: $text-color;
+
+  &:visited {
+    color: $text-color;
+  }
+  &:active {
+    color: $text-color;
+  }
+  &:hover {
+    color: $text-color;
+  }
+}
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

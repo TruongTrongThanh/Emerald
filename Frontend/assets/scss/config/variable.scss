@@ -1,0 +1,45 @@
+//
+// Import font
+//
+@import url('https://fonts.googleapis.com/css?family=Crete+Round'); // Label font
+//
+// Global style
+//
+$text-color: black !default;
+//
+// Navbar properties
+//
+$navbar-backgroundColor: white !default;
+$navbar-color: black !default;
+$navbar-height: 60px !default;
+$navbar-desktopList-backgroundColor: rgba(255, 255, 255, 0.89) !default;
+//$height-content: 144px !default;
+//
+// Panel properties
+//
+$panel-backgroundColor: #f0f0f0 !default;
+$panel-header-height: 35px !default;
+$panel-header-backgroundColor: #d8d8d8 !default;
+$panel-header-color: black !default;
+$panel-content-color: white !default;
+//
+// Form Control properties
+//
+$formControl-width: 400px !default;
+$formControl-label-color: gold !default;
+$formControl-input-width: 90% !default;
+$formControl-input-height: 25px !default;
+$formControl-label-font: 'Crete Round', serif !default;
+//
+// Responsive font size
+//
+$for-phone-only-fontSize: 1em !default;
+$for-tablet-portrait-up-fontSize: 1em !default;
+$for-tablet-landscape-up-fontSize: 1em !default;
+$for-desktop-up-fontSize: 1.1em !default;
+$for-big-desktop-up-fontSize: 1.2em !default;
+//
+// Chapter properties
+//
+$evenColor: #d4d4d4;
+$oddColor: #dfdfdf;
