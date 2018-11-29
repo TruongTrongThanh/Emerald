@@ -1,6 +1,6 @@
-# moonlight-nuxt-2.0
+# Emerald-nuxt-2.0
 
-> My tremendous Nuxt.js project
+> Front-end Comic Web Application
 
 ## Build Setup
 
@@ -18,5 +18,3 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
