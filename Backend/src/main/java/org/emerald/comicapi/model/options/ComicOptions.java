@@ -1,12 +1,11 @@
 package org.emerald.comicapi.model.options;
 
-import javax.validation.constraints.Positive;
-
-import org.springframework.data.annotation.PersistenceConstructor;
-
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.lang.Nullable;
+
+import javax.validation.constraints.Positive;
 
 @Getter
 @Setter

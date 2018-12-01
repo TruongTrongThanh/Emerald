@@ -40,7 +40,12 @@ export default {
   },
   methods: {
     loginHandler() {
-      
+      const loginUrl = process.env.userApi + '/login'
+      const user = this.form
+      this.$store.dispatch('user/login', { loginUrl, user })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 }

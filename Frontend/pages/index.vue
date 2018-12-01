@@ -74,8 +74,8 @@ export default {
     let comicListUrl = env.comicApi
     let newChaptersUrl = env.chapterApi
     try {
-      await store.dispatch('chapter/fetchNewChapters', newChaptersUrl)
-      await store.dispatch('comic/fetchComicList', comicListUrl)
+      await store.dispatch('chapter/fetchNewChapters', { newChaptersUrl })
+      await store.dispatch('comic/fetchComicList', { comicListUrl })
     }
     catch (e) {
       if (e.response === undefined || e.response === null) 

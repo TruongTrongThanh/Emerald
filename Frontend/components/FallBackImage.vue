@@ -11,7 +11,7 @@
   >
   <img 
     v-else
-    :style="`padding: 15px`"
+    class="error-image"
     src="~/assets/error_img.png"
   >
 </template>
@@ -91,4 +91,8 @@ export default {
 </script>
 
 <style>
+.error-image {
+  padding: 15px;
+  width: 100%;
+}
 </style>

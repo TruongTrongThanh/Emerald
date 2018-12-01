@@ -8,18 +8,12 @@ import org.emerald.comicapi.repository.UserRepository;
 import org.emerald.comicapi.service.MongoUserDetailService;
 import org.emerald.comicapi.validator.sequence.ValidationSequence;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.MethodParameter;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
+import org.springframework.security.core.Authentication;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/users")
@@ -61,6 +55,15 @@ public class UserController {
 
         ResponseFormat format = new ResponseFormat(400, message, "/users/admin-creation");
         return ResponseEntity.badRequest().body(format);
+    }
+
+    @PostMapping("/current-user")
+    public ResponseEntity<?> getCurrentUser(Principal principal) {
+        Authentication token = (Authentication) principal;
+        User user = (User) token.getPrincipal();
+        return token.isAuthenticated() ?
+                ResponseEntity.ok(user) :
+                ResponseEntity.badRequest().build();
     }
 
     @DeleteMapping("")

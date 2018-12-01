@@ -1,19 +1,15 @@
 package org.emerald.comicapi.service;
 
+import net.lingala.zip4j.exception.ZipException;
+import org.apache.tika.mime.MimeTypeException;
+import org.springframework.lang.Nullable;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
-import java.util.List;
-import java.util.stream.Stream;
-
-import org.apache.tika.mime.MimeTypeException;
-import org.emerald.comicapi.model.data.Chapter;
-import org.springframework.lang.Nullable;
-import org.springframework.web.multipart.MultipartFile;
-
-import net.lingala.zip4j.exception.ZipException;
 
 public interface StorageService {
     File store(MultipartFile multipartFile, @Nullable String basename, Path storedPath) throws IOException, IllegalStateException, MimeTypeException;

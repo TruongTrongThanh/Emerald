@@ -5,7 +5,6 @@ import org.emerald.comicapi.config.GlobalVariable;
 import org.emerald.comicapi.model.common.ResponseFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.codec.json.Jackson2JsonEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.stereotype.Component;

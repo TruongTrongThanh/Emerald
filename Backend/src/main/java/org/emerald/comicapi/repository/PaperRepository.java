@@ -1,10 +1,10 @@
 package org.emerald.comicapi.repository;
 
+import org.bson.types.ObjectId;
+import org.emerald.comicapi.model.data.Paper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.bson.types.ObjectId;
-import org.emerald.comicapi.model.data.Paper;
 import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;

@@ -1,12 +1,11 @@
 package org.emerald.comicapi.validator;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-
+import org.emerald.comicapi.validator.annotation.JsonArray;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import org.emerald.comicapi.validator.annotation.JsonArray;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class JsonArrayValidator implements ConstraintValidator<JsonArray,String> {
     

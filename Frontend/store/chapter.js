@@ -17,11 +17,11 @@ export const mutations = {
 }
 
 export const actions = {
-  fetchNewChapters({ commit }, url, options = null) {
+  fetchNewChapters({ commit }, { newChaptersUrl, options = null }) {
     const config = {
       params: options
     }
-    return this.$axios.$get(url, config).then(res => {
+    return this.$axios.$get(newChaptersUrl, config).then(res => {
       commit('setNewChapters', res.content)
     })
   },

@@ -1,6 +1,6 @@
 <template>
   <div 
-    :style="`margin: ${marginHeight}px auto`"
+    :style="{ margin: marginHeight + 'px auto' }"
     class="spinner"
   >
     <div class="rect1"/>

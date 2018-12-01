@@ -102,9 +102,10 @@ export default {
       await store.dispatch('comic/fetchComicChapters', { comicChaptersUrl, options })
     }
     catch (e) {
-      let statusCode = e.response ? e.response.data.status : 500
-      let message = e.response ? e.response.data.message : 'Server Error'
-      error({ statusCode: statusCode, message: message })
+      if (e.response === undefined || e.response === null) 
+        error({ statusCode: 500, message: "Server is down" })
+      else
+        error({ statusCode: e.response.data.status, message: e.response.data.message })
     }
   }
 }

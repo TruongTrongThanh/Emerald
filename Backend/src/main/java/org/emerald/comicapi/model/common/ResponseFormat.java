@@ -1,19 +1,16 @@
 package org.emerald.comicapi.model.common;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.Nullable;
 import org.springframework.web.context.request.WebRequest;
 
-import lombok.Getter;
-
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 @Getter
 @JsonInclude(Include.NON_EMPTY)

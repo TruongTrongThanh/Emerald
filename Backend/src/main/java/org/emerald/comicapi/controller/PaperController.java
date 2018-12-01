@@ -13,19 +13,13 @@ import org.emerald.comicapi.service.ComicService;
 import org.emerald.comicapi.service.StorageService;
 import org.emerald.comicapi.validator.sequence.ValidationSequence;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.MethodParameter;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.lang.reflect.Method;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.zip.ZipFile;
 
 @RestController
 @RequestMapping("/api/papers")

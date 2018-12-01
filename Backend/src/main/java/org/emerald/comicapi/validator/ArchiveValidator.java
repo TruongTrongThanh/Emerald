@@ -1,15 +1,13 @@
 package org.emerald.comicapi.validator;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-
-import org.apache.tika.Tika;
+import org.emerald.comicapi.config.GlobalVariable;
 import org.emerald.comicapi.service.FileDetector;
+import org.emerald.comicapi.validator.annotation.Archive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
-import org.emerald.comicapi.config.GlobalVariable;
-import org.emerald.comicapi.validator.annotation.Archive;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class ArchiveValidator implements ConstraintValidator<Archive,MultipartFile> {
     

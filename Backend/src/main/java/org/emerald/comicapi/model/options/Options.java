@@ -1,18 +1,15 @@
 package org.emerald.comicapi.model.options;
 
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Positive;
-
+import lombok.Getter;
 import org.emerald.comicapi.validator.annotation.ArrayFormat;
-import org.emerald.comicapi.validator.annotation.JsonArray;
-import org.json.JSONArray;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
-
-import lombok.Getter;
 import org.springframework.lang.Nullable;
+
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Positive;
 
 @Getter
 public class Options {

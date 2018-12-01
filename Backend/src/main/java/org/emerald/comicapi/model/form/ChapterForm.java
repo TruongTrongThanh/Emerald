@@ -1,13 +1,10 @@
 package org.emerald.comicapi.model.form;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.emerald.comicapi.model.data.Chapter;
-import org.emerald.comicapi.model.data.Comic;
 import org.emerald.comicapi.validator.annotation.Archive;
 import org.emerald.comicapi.validator.annotation.MongoId;
 import org.emerald.comicapi.validator.annotation.UniqueEntity;
@@ -15,8 +12,7 @@ import org.emerald.comicapi.validator.sequence.ClassLevel;
 import org.emerald.comicapi.validator.sequence.FieldLevel;
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.Getter;
-import lombok.Setter;
+import javax.validation.constraints.NotBlank;
 
 @Getter @Setter
 @UniqueEntity(

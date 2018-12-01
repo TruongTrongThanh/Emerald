@@ -1,20 +1,18 @@
 package org.emerald.comicapi.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.emerald.comicapi.model.data.Comic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.core.BulkOperations;
-import org.springframework.data.mongodb.core.BulkOperations.BulkMode;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.data.mongodb.core.query.TextQuery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComicRepositoryImpl implements ComicRepositoryCustom {
 

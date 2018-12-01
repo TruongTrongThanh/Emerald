@@ -1,13 +1,10 @@
 package org.emerald.comicapi.model.data;
 
-import java.net.URL;
-import java.nio.file.Path;
-import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.emerald.comicapi.model.form.PaperForm;
 import org.emerald.comicapi.model.form.PaperUpdate;
@@ -16,8 +13,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.net.URL;
+import java.time.LocalDateTime;
 
 @Document(collection = "papers")
 @JsonInclude(Include.NON_EMPTY)

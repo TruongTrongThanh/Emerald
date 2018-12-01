@@ -6,7 +6,7 @@
     >
       <div class="navbar-brand with-logo">
         <img src="~/assets/Emerald_Logo.svg">
-        <div class="text">Emerald Forest</div>
+        <div class="text">Emerald</div>
       </div>
     </nuxt-link>
     <div class="navbar-mobile-list">
@@ -38,18 +38,21 @@
               type="text" 
               placeholder="Search..."
             >
-            <button class="search-icon">Search</button>
+            <button 
+              class="search-icon"
+              @click="$emit('sideuserpanel-click')" 
+            >
+              Search
+            </button>
           </div>
         </div>
       </div>
       <div class="navbar-end">
-        <div class="navbar-item username">Anonymous</div>
-        <div class="navbar-item no-padding">
-          <img 
-            src="~/assets/no_avatar.jpg"
-            class="avatar pointer"
-            @click="$emit('sideuserpanel-click')"
-          >
+        <div 
+          class="navbar-item no-padding"
+          @click="$emit('sideuserpanel-click')"
+        >
+          <user-info/>
         </div>
       </div>
     </div>
@@ -57,12 +60,23 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import UserInfo from '@/components/UserInfo'
+
 export default {
   name: 'DefaultNavbar',
+  components: {
+    UserInfo
+  },
   data() {
     return {
       isNavBarActive: false
     }
+  },
+  computed: {
+    ...mapState({
+      authUser: state => state.user.authUser
+    })
   }
 }
 </script>

@@ -1,12 +1,5 @@
 package org.emerald.comicapi.validator;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-
-import org.apache.tika.Tika;
-import org.bson.types.ObjectId;
-import org.emerald.comicapi.service.FileDetector;
-import org.emerald.comicapi.validator.annotation.MongoId;
 import org.emerald.comicapi.validator.annotation.UniqueEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -14,11 +7,9 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.web.multipart.MultipartFile;
 
-import org.emerald.comicapi.config.GlobalVariable;
-import org.emerald.comicapi.validator.annotation.Archive;
-
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

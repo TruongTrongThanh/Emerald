@@ -1,10 +1,5 @@
 package org.emerald.comicapi.handler;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.emerald.comicapi.config.GlobalVariable;
 import org.emerald.comicapi.exception.EntityNotFoundException;
 import org.emerald.comicapi.model.common.ResponseFormat;
@@ -24,7 +19,10 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestControllerAdvice
 public class RestErrorHandler extends ResponseEntityExceptionHandler {

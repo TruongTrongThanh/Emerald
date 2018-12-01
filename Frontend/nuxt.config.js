@@ -1,5 +1,5 @@
 const pkg = require('./package')
-const hostname = '192.168.1.4'
+const hostname = '192.168.1.10'
 const serverUrl = `http://${hostname}:3000/api`
 
 module.exports = {
@@ -20,8 +20,7 @@ module.exports = {
   env: {
     comicApi: process.env.COMIC_URL || serverUrl + '/comics',
     chapterApi: process.env.CHAPTER_URL || serverUrl + '/chapters',
-
-    isLocal: true
+    userApi: process.env.USER_URL || serverUrl + '/users'
   },
   server: {
     port: 8080,

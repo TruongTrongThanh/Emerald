@@ -1,29 +1,27 @@
 package org.emerald.comicapi.model.data;
 
-import java.io.File;
-import java.net.URL;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
+import lombok.Getter;
+import lombok.Setter;
 import org.bson.types.ObjectId;
-import org.json.JSONArray;
 import org.emerald.comicapi.model.form.ComicForm;
 import org.emerald.comicapi.model.form.ComicUpdate;
 import org.emerald.comicapi.model.options.ComicOptions;
+import org.json.JSONArray;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.io.File;
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Document(collection = "comics")
 @JsonInclude(Include.NON_EMPTY)

@@ -1,7 +1,5 @@
 package org.emerald.comicapi.config;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -10,7 +8,6 @@ import org.apache.catalina.webresources.StandardRoot;
 import org.apache.commons.fileupload.FileUploadBase;
 import org.apache.commons.fileupload.servlet.ServletRequestContext;
 import org.bson.types.ObjectId;
-import org.emerald.comicapi.ComicApiApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +19,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.domain.Page;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Configuration
@@ -103,7 +99,7 @@ public class ApplicationConfig {
                     gen.writeStartObject();
                     gen.writeObjectField("content", value.getContent());
                     gen.writeNumberField("totalPages", value.getTotalPages());
-                    gen.writeNumberField("numberOfElements", value.getTotalElements());
+                    gen.writeNumberField("totalElements", value.getTotalElements());
                     gen.writeEndObject();
                 }
             };
