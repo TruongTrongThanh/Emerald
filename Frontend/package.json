@@ -17,7 +17,8 @@
     "cross-env": "^5.2.0",
     "lodash": "^4.17.11",
     "nuxt": "^2.0.0",
-    "perfect-scrollbar": "^1.4.0"
+    "perfect-scrollbar": "^1.4.0",
+    "vue-lodash": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

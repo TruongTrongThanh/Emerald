@@ -57,7 +57,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import lodash from 'lodash'
 import multipleHeaderPanel from '@/components/MultipleHeaderPanel'
 
 export default {
@@ -74,12 +73,13 @@ export default {
     let comicListUrl = env.comicApi
     let newChaptersUrl = env.chapterApi
     try {
-      await store.dispatch('chapter/fetchNewChapters', { newChaptersUrl })
-      await store.dispatch('comic/fetchComicList', { comicListUrl })
+      let newChaptersPromise = store.dispatch('chapter/fetchNewChapters', { newChaptersUrl })
+      let comicListPromise = store.dispatch('comic/fetchComicList', { comicListUrl })
+      await Promise.all([newChaptersPromise, comicListPromise])
     }
     catch (e) {
       if (e.response === undefined || e.response === null) 
-        error({ statusCode: 500, message: "Server is down" })
+        error({ statusCode: 500, message: e.message })
       else
         error({ statusCode: e.response.data.status, message: e.response.data.message })
     }
@@ -167,7 +167,7 @@ export default {
       return genreList
     },
     orderedChapter(chapters) {
-      return lodash.orderBy(chapters, ['createdAt'], ['desc'])
+      return this._.orderBy(chapters, ['createdAt'], ['desc'])
     }
   }
 }

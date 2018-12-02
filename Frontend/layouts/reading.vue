@@ -1,7 +1,7 @@
 <template>
   <div @dblclick="bodyClickEvent($event)">
-    <reading-navbar/>
-    <nuxt/>
+    <reading-navbar :class="{ 'no-fixed': isOnePageMode }"/>
+    <nuxt :class="{ 'no-fixed': isOnePageMode }"/>
   </div>
 </template>
 
@@ -15,8 +15,18 @@ export default {
   },
   data() {
     return {
-      toggle: false
+      toggle: false,
+      isOnePageMode: false
     }
+  },
+  computed: {
+    ...mapState({
+      readingMode: state => state.readingSetting.readingMode
+    })
+  },
+  created() {
+    if (this.readingMode === 1)
+      this.isOnePageMode = true
   },
   methods: {
     ...mapMutations({

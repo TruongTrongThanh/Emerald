@@ -55,6 +55,11 @@ body {
   margin: 0 auto;
   margin-bottom: 20px;
 
+  margin-top: 80px;
+  &.no-fixed {
+    margin-top: 20px;
+  }
+
   @include for-tablet-landscape-up {
     width: 90%;
   }

@@ -2,7 +2,8 @@ export const state = () => ({
   forceZoom: false,
   containerFit: true,
   navbarActive: true,
-  clickNavbarActiveLock: true
+  clickNavbarActiveLock: true,
+  readingMode: 1
 })
 
 export const mutations = {
@@ -19,10 +20,14 @@ export const mutations = {
       state.navbarActive = !state.navbarActive
   },
   setNavbarActive(state, value) {
-    state.navbarActive = value
+    if (!state.clickNavbarActiveLock)
+      state.navbarActive = value
   },
   setClickNavbarActiveLock(state, value) {
     state.clickNavbarActiveLock = value
+  },
+  setReadingMode(state, value) {
+    state.readingMode = value
   }
 }
 

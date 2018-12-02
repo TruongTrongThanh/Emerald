@@ -91,15 +91,16 @@ export default {
     return /^[0-9a-f]{24}$/g.test(params.id)
   },
   async fetch({ params, store, env, error }) {
-    let comicUrl = env.comicApi + '/' + params.id
-    let comicChaptersUrl = env.comicApi + '/' + params.id + '/chapters'
+    let comicUrl = `${env.comicApi}/${params.id}`
+    let comicChaptersUrl = `${env.comicApi}/${params.id}/chapters`
+
     try {
-      await store.dispatch('comic/fetchComicDetails', comicUrl)
-      const options = {
-        sortOrder: 'name',
-        direction: 'desc'
-      }
-      await store.dispatch('comic/fetchComicChapters', { comicChaptersUrl, options })
+      let comicDetailsPromise = store.dispatch('comic/fetchComicDetails', comicUrl)
+
+      const comicChaptersOptions = { sortOrder: 'name', direction: 'desc' }
+      let comicChaptersPromise = store.dispatch('comic/fetchComicChapters', { comicChaptersUrl, comicChaptersOptions })
+
+      await Promise.all([comicDetailsPromise, comicChaptersPromise])
     }
     catch (e) {
       if (e.response === undefined || e.response === null) 

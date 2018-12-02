@@ -1,7 +1,8 @@
 export const state = () => ({
   newChapters: [],
   chapterDetails: null,
-  paperList: []
+  paperList: [],
+  maxPaperListPage: 0
 })
 
 export const mutations = {
@@ -13,23 +14,27 @@ export const mutations = {
   },
   setPaperList(state, paperList) {
     state.paperList = paperList
+  },
+  setMaxPaperListPage(state, value) {
+    state.maxPaperListPage = value
   }
 }
 
 export const actions = {
-  fetchNewChapters({ commit }, { newChaptersUrl, options = null }) {
+  fetchNewChapters({ commit }, { newChaptersUrl, newChaptersOptions = null }) {
     const config = {
-      params: options
+      params: newChaptersOptions
     }
     return this.$axios.$get(newChaptersUrl, config).then(res => {
       commit('setNewChapters', res.content)
     })
   },
-  fetchPaperList({ commit }, { papersUrl, options = null }) {
+  fetchPaperList({ commit }, { papersUrl, paperOptions = null }) {
     const config = {
-      params: options
+      params: paperOptions
     }
     return this.$axios.$get(papersUrl, config).then(res => {
+      commit('setMaxPaperListPage', res.totalPages)
       commit('setPaperList', res.content)
     })
   },

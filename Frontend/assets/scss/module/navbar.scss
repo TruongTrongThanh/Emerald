@@ -7,9 +7,9 @@
   height: $navbar-height;
   color: $navbar-color;
   box-shadow: 0 -2px 8px #878787;
-  margin-bottom: 20px;
   align-items: center;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
 
   grid-template-columns: 1fr 3fr 1fr;

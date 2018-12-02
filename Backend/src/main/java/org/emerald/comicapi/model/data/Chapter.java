@@ -37,6 +37,8 @@ public class Chapter {
 
     @JsonProperty(access = Access.READ_ONLY)
     private @Getter @Setter Comic comic;
+    @JsonProperty(access = Access.READ_ONLY)
+    private @Getter @Setter Integer totalPages;
 
     public Chapter(){}
     public Chapter(ChapterForm chapterForm) {

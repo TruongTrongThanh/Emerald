@@ -17,9 +17,9 @@ export const mutations = {
 }
 
 export const actions = {
-  fetchComicList({ commit }, { comicListUrl, options = null }) {
+  fetchComicList({ commit }, { comicListUrl, comicOptions = null }) {
     const config = {
-      params: options
+      params: comicOptions
     }
     return this.$axios.$get(comicListUrl, config).then(res => {
       commit('setComicList', res.content)
@@ -30,9 +30,9 @@ export const actions = {
       commit('setComicDetails', res)
     })
   },
-  fetchComicChapters({ commit }, { comicChaptersUrl, options = null }) {
+  fetchComicChapters({ commit }, { comicChaptersUrl, comicChaptersOptions = null }) {
     const config = {
-      params: options
+      params: comicChaptersOptions
     }
     return this.$axios.$get(comicChaptersUrl, config).then(res => {
       commit('setComicChapters', res.content)

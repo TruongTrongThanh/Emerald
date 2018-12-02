@@ -1,5 +1,5 @@
 const pkg = require('./package')
-const hostname = '192.168.1.10'
+const hostname = '192.168.1.13'
 const serverUrl = `http://${hostname}:3000/api`
 
 module.exports = {
@@ -28,7 +28,8 @@ module.exports = {
   },
   plugins: [
     '~/plugins/FallBackImagePlugin',
-    '~/plugins/MixinPlugin'
+    '~/plugins/MixinPlugin',
+    '~/plugins/LodashPlugin'
   ],
   /*
   ** Customize the progress-bar color
@@ -59,6 +60,9 @@ module.exports = {
           component: resolve(__dirname, 'pages/chapters/_id.vue')
         }
       )
+    },
+    scrollBehavior: function(to, from, savedPosition) {
+      return { x: 0, y: 0 }
     }
   },
   /*

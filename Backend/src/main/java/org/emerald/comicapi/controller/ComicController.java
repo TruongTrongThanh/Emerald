@@ -77,7 +77,7 @@ public class ComicController {
             @PathVariable String id)
     {
         Comic comic = comicRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(Comic.class));
-        return chapterRepository.findByComicId(comic.getId(), options.getPageRequest());
+        return chapterRepository.findByComicIdWithTotalPages(comic.getId(), options.getPageRequest());
     }
 
     @PostMapping("")

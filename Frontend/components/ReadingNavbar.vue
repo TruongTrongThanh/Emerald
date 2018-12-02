@@ -47,10 +47,14 @@
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
-          <select class="chapter-selection">
+          <select 
+            v-model="selectedChapterId"
+            class="chapter-selection"
+          >
             <option
               v-for="chapter in chapterList"
               :key="chapter.id"
+              :value="chapter.id"
               v-text="chapter.name"
             />
           </select>
@@ -62,7 +66,6 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
-import lodash from 'lodash'
 
 export default {
   name: 'ReadingNavbar',
@@ -74,7 +77,8 @@ export default {
         'is-active': true,
         'fade-enter-active': false,
         'fade-leave-active': false
-      }
+      },
+      selectedChapterId: this.$route.params.id
     }
   },
   computed: {
@@ -96,10 +100,15 @@ export default {
       else {
         this.fadeLeaveAnimation()
       }
+    },
+    selectedChapterId: function(newVal) {
+      let chapter = this.chapterList.find(chapter => chapter.id === newVal)
+      let chapterName = this.encodeName(chapter.name)
+      this.$router.push({ path: `/chapters/${newVal}/${chapterName}` })
     }
   },
   mounted() {
-    window.addEventListener('scroll', lodash.throttle(this.scrollDown, 100))
+    window.addEventListener('scroll', this._.throttle(this.scrollDown, 100))
   },
   methods: {
     ...mapMutations({
@@ -146,6 +155,11 @@ export default {
 @import '@/assets/scss/module/navbar.scss';
 .navbar {
   opacity: 0;
+
+  &.no-fixed {
+    position: initial;
+  }
+
   &.is-active {
     opacity: 1;
   }

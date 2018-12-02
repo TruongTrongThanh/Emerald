@@ -54,6 +54,10 @@ export default {
     }
   },
   watch: {
+    imgSrc: function(newVal, oldVal) {
+      this.state = 'loading'
+      this.loadingImage()
+    },
     forceZoom: function(newVal, oldVal) {
       if (newVal === true) {
         this.imageStyle.width = '100%'
@@ -73,19 +77,24 @@ export default {
     }
   },
   mounted() {
-    let img = new Image()
-    img.onload = () => {
-      this.state = 'completed'
-      this.$nextTick(() => {
-        let image = this.$refs.image
-        if (image != null && this.disableOndragstart)
-          image.ondragstart = () => false
-      })
+    this.loadingImage()
+  },
+  methods: {
+    loadingImage() {
+      let img = new Image()
+      img.onload = () => {
+        this.state = 'completed'
+        this.$nextTick(() => {
+          let image = this.$refs.image
+          if (image != null && this.disableOndragstart)
+            image.ondragstart = () => false
+        })
+      }
+      img.onerror = () => {
+        this.state = 'failed'
+      }
+      img.src = this.imgSrc
     }
-    img.onerror = () => {
-      this.state = 'failed'
-    }
-    img.src = this.imgSrc
   }
 }
 </script>
